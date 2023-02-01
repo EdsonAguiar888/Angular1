@@ -16,7 +16,7 @@ export class CursoComponent implements OnInit {
 
 
   //Vetor de Cursos
-    vetor?:Curso[];
+    vetor:Curso[];  <----------------------------------
 
 
   constructor(private http:HttpClient) {
