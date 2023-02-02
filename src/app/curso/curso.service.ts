@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import { Observable} from 'rxjs';
+import { Observable} from 'rxjs/';
 
 import { map } from 'rxjs/operators';
 import { Curso } from './curso';
@@ -15,8 +15,13 @@ export class CursoService {
   url = "http://localhost/api/php/";
 
   //vetor 
-  vetor:Curso[];   //<----------------------------------------------
+  vetor:Curso[]; 
+    //<----------------------------------------------
 
+  //Objeto da classe Curso
+  curso = new Curso();
+
+  //Construtor 
   constructor(private http: HttpClient) { }
 
   
@@ -27,12 +32,10 @@ export class CursoService {
         this.vetor = res['cursos'];  //<-------------------------------------
         return this.vetor;
       })
-
     )
-
     
-  
-
-  
+    } 
 
 }
+
+//console.log(vetor);

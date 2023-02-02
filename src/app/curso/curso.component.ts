@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Curso } from './curso';
+import { CursoService } from './curso.service';
+import './curso.component.css';
 import { HttpClient } from '@angular/common/http';
 
 
@@ -11,19 +13,29 @@ import { HttpClient } from '@angular/common/http';
 export class CursoComponent implements OnInit {
 
 
-  //URL de conexão
-  url = "http://localhost/api/php/";
+  //Vetor
+  vetor: Curso[];
 
+  //Objeto da Classe Curso
+  curso = new Curso();
 
-  //Vetor de Cursos
-    vetor:Curso[];  //<----------------------------------
-
-
-  constructor(private http:HttpClient) {
-
+  //Construtor
+  constructor(private curso_servico:CursoService) {
    }
 
-  ngOnInit(): void {
+   //Inicializador
+  ngOnInit(){
+    //Ao iniciar o sistema, devera listar todos os cursos
+    this.selecao();
+  }
+
+  //Selecao
+  selecao(){
+    this.curso_servico.obterCursos().subscribe(
+      (res:Curso[]) => {
+        this.vetor = res;
+      }
+    )
   }
 
 
@@ -31,9 +43,9 @@ export class CursoComponent implements OnInit {
     alert("cadastrar");
   }
 
-  selecao() : void {
-    alert("Seleção");
-  }
+  //selecao() : void {
+ //   alert("Seleção");
+ // }
 
   alterar() : void {
     alert("alterar");
@@ -43,4 +55,5 @@ export class CursoComponent implements OnInit {
     alert("Revover");
   }
 
+  
 }
