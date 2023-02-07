@@ -12,10 +12,10 @@ import { Curso } from './curso';
 export class CursoService {
 
   //URL
-  url = "http://localhost/api/php/";
+  url = 'http://localhost/api/php/';
 
   //vetor 
-  vetor:Curso[]; 
+  vetor:Curso[] = []; 
     //<----------------------------------------------
 
   //Objeto da classe Curso
@@ -38,4 +38,3 @@ export class CursoService {
 
 }
 
-//console.log(vetor);
