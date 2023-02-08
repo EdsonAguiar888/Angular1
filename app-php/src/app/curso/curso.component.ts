@@ -30,13 +30,21 @@ export class CursoComponent implements OnInit {
   }
 
   //Selecao
-  selecao(){
+  /*selecao(){
     this.curso_servico.obterCursos().subscribe(
       (res:Curso[]) => {
         this.vetor = res;
       }
-    )
+    );
   }
+  */
+
+  selecao(){
+    this.curso_servico.obterCursos().subscribe(
+    (res:Curso[]) => {
+    this.vetor = res;
+    });
+    }
 
 
   cadastro(): void{
