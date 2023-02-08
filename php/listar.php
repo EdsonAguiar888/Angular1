@@ -13,7 +13,7 @@
 
 
     //Vetor
-    $cursos[] = [];
+    $cursos = [];
 
     $indice = 0;
 
@@ -32,6 +32,6 @@
     //Json
     json_encode(['cursos'=>$cursos]);
 
-    //var_dump($cursos);
+    var_dump($cursos);
 
 ?>
